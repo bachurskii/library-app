@@ -58,7 +58,8 @@ const BookList = () => {
             <li key={book.id}>
               <div className="book-info">
                 {++index}. {hughLicghMatch(book.title, titleFilter)} by{" "}
-                <strong>{hughLicghMatch(book.author, authorFilter)}</strong>
+                <strong>{hughLicghMatch(book.author, authorFilter)}</strong> (
+                {book.sourse})
               </div>
               <div className="book-actions">
                 <span onClick={() => handleToggleFavorite(book.id)}>

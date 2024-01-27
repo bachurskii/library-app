@@ -2,7 +2,7 @@ import "./App.css";
 import BookList from "./components/Book-list/Book-list";
 import BookForm from "./components/Book-form/Book-form";
 import Filter from "./components/Filter/Filter";
-
+import Error from "./components/Error/Error";
 function App() {
   return (
     <div className="app">
@@ -18,6 +18,7 @@ function App() {
           <BookList />
         </div>
       </main>
+      <Error />
     </div>
   );
 }

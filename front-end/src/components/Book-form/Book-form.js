@@ -1,8 +1,8 @@
 import { useState } from "react";
-import axios from "axios";
 import "./Book-form.css";
 import { useDispatch } from "react-redux";
-import { addBook } from "../../redux/slices/booksSlice";
+import { addBook, fetchBook } from "../../redux/slices/booksSlice";
+import { setError } from "../../redux/slices/errorSlice";
 import booksData from "../../data/books.json";
 import CreateBookWithId from "../../utils/createBookWithId";
 const BookForm = () => {
@@ -13,28 +13,24 @@ const BookForm = () => {
     e.preventDefault();
 
     if (author && title) {
-      const book = CreateBookWithId({ title, author });
+      const book = CreateBookWithId({ title, author }, "manual");
 
       dispatch(addBook(book));
       setTitle("");
       setAuthor("");
+    } else {
+      dispatch(setError("You must fill title and author"));
     }
   };
   const handleAddRandomBook = () => {
     const randomIndexBook = Math.floor(Math.random() * booksData.length);
     const randomBook = booksData[randomIndexBook];
-    const randomBookId = CreateBookWithId(randomBook);
-    dispatch(addBook(randomBookId));
+
+    dispatch(addBook(CreateBookWithId(randomBook, "random")));
   };
-  const handleAddRandomBookByApi = async () => {
-    try {
-      const res = await axios.get("http://localhost:4000/random-book");
-      if (res?.data.title && res?.data.author) {
-        dispatch(addBook(CreateBookWithId(res.data)));
-      }
-    } catch (error) {
-      console.error(error);
-    }
+
+  const handleAddRandomBookByApi = () => {
+    dispatch(fetchBook());
   };
   return (
     <div className="app-block book-form">
