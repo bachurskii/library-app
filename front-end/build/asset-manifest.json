@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/library-app/front-end/static/css/main.d1b9ccdd.css",
+    "main.js": "/library-app/front-end/static/js/main.183e764e.js",
+    "index.html": "/library-app/front-end/index.html",
+    "main.d1b9ccdd.css.map": "/library-app/front-end/static/css/main.d1b9ccdd.css.map",
+    "main.183e764e.js.map": "/library-app/front-end/static/js/main.183e764e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1b9ccdd.css",
+    "static/js/main.183e764e.js"
+  ]
+}
