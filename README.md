@@ -17,7 +17,7 @@ Libraty-App is an application for managing a collection of books. It allows user
 ## Installation
 
 ```bash
-git clone https://github.com/bachurskii/libraty-app.git
+git clone https://github.com/bachurskii/library-app.git
 cd library-app/front-end
 npm install
 npm start
